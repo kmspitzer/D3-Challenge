@@ -30,6 +30,24 @@ var chartGroup = svg.append("g")
 d3.csv("./assets/data/data.csv").then(function(censusData) {
 
 	console.log(censusData);
+	// parse data
+	censusData.forEach(function(data) {
+		data.poverty        = +data.poverty;
+		data.povertyMoe     = +data.povertyMoe;
+		data.age            = +data.age;
+		data.ageMoe         = +data.ageMoe;
+		data.income         = +data.incomeMoe;
+		data.incomeMoe      = +data.incomeMoe;
+		data.healthcare     = +data.healthcare;
+		data.healthcareLow  = +data.healthcareLow;
+		data.healthcareHigh = +data.healthcareHigh;
+		data.obesity        = +data.obesity;
+		data.obesityLow     = +data.obesityLow;
+		data.obesityHigh    = +data.obesityHigh;
+		data.smokes         = +data.smokes;
+		data.smokesLow      = +data.smokesLow;
+		data.smokesHigh     = +data.smokesHigh;
+	  });
 
 
 
