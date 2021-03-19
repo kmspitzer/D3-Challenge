@@ -22,8 +22,7 @@ var svg = d3
 	.attr("height", svgHeight);
 
 var chartGroup = svg.append("g")
-	.attr("transform", `translate(${margin.left}, ${margin.top})`)
-	.classed("chart", true);
+	.attr("transform", `translate(${margin.left}, ${margin.top})`);
 
 // Initial Params
 var chosenXAxis = "poverty";
@@ -191,7 +190,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 
 	// append x axis
 	var xAxis = chartGroup.append("g")
-		.classed("x-axis", true)
+		.classed("chart", true)
 		.attr("transform", `translate(0, ${height})`)
 		.call(bottomAxis);
 
@@ -200,6 +199,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 		.call(leftAxis);
 	
 	// append initial circles
+
 	var circlesGroup = chartGroup.selectAll("circle")
     	.data(censusData)
     	.enter()
@@ -207,10 +207,15 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 		.classed("stateCircle", true)
     	.attr("cx", d => xLinearScale(d[chosenXAxis]))
     	.attr("cy", d => yLinearScale(d[chosenYAxis]))
-    	.attr("r", 10)
-    	.attr("fill", "lightblue")
-    	.attr("opacity", "1.0");
+    	.attr("r", 15);
 
+	circlesGroup
+		.append("text")
+		.classed("stateText", true)
+		.attr("x", d => xLinearScale(d[chosenXAxis]))
+		.attr("y", d => yLinearScale(d[chosenYAxis]))
+		.attr("dy", "0.5em")
+		.text(d => d.abbr);
 
 	// create group for x axis labels
   	var xlabelsGroup = chartGroup.append("g")
@@ -402,5 +407,5 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 	});
 
 }).catch(function(error) {
-console.log(error);
+	console.log(error);
 });
