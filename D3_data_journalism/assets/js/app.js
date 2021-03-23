@@ -163,7 +163,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
 // set size of entire chart area
 var svgWidth = 1200;
-var svgHeight = 900;
+var svgHeight = 800;
 
 
 // define margins around chart
@@ -204,20 +204,11 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 	// parse data and convert to numeric
 	censusData.forEach(function(data) {
 		data.poverty        = +data.poverty;
-		data.povertyMoe     = +data.povertyMoe;
 		data.age            = +data.age;
-		data.ageMoe         = +data.ageMoe;
-		data.income         = +data.incomeMoe;
-		data.incomeMoe      = +data.incomeMoe;
+		data.income         = +data.income;
 		data.healthcare     = +data.healthcare;
-		data.healthcareLow  = +data.healthcareLow;
-		data.healthcareHigh = +data.healthcareHigh;
 		data.obesity        = +data.obesity;
-		data.obesityLow     = +data.obesityLow;
-		data.obesityHigh    = +data.obesityHigh;
 		data.smokes         = +data.smokes;
-		data.smokesLow      = +data.smokesLow;
-		data.smokesHigh     = +data.smokesHigh;
 	});
 
 	// create linear scale functions
@@ -263,8 +254,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 		.attr("y", d=> yLinearScale(d[chosenYAxis]))
 		.attr("dy", "0.4em")
 		.style("font-size", radius*0.8)
-		.text(d => d.abbr)
-;
+		.text(d => d.abbr);
 
 	// create group for x axis labels
   	var xlabelsGroup = chartGroup.append("g")
