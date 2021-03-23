@@ -94,7 +94,7 @@ function renderYText(circleLabels, newYScale, chosenYAxis) {
 }
   
 // function used for updating circles group with new tooltip
-function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
+function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleLabels) {
   
 	var xlabel;
 	var ylabel;
@@ -141,12 +141,15 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 		});
   
 	// create tooltips
-	circlesGroup.call(toolTip);
+	chartGroup.call(toolTip);
   
 	// create event listener for mouseover and
 	// mouseout on circles
 	circlesGroup.on("mouseover", function(data) {
-		toolTip.show(data);
+		toolTip.show(data, this);
+	})
+	circleLabels.on("mouseover", function(data) {
+		toolTip.show(data, this);
 	})
 	.on("mouseout", function(data, index) {
 		toolTip.hide(data);
@@ -163,7 +166,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 
 // set size of entire chart area
 var svgWidth = 1000;
-var svgHeight = 600;
+var svgHeight = 900;
 
 
 // define margins around chart
@@ -238,7 +241,6 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 	var yAxis = chartGroup.append("g")
 		.call(leftAxis);
 	
-
 	// set radius of circles
 	var radius = 15;
 
@@ -253,6 +255,8 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
     	.attr("r", radius);
 
 	// create group for state abbreviations
+	// source: https://stackoverflow.com/questions/55988709/how-can-i-add-labels-inside-the-points-in-a-scatterplot
+	// -- with much appreciation to annette broeren and kevin mickey
 	var circleLabels = chartGroup.selectAll(null).data(censusData).enter().append("text");
 
 	// add labels for circles
@@ -303,7 +307,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 		.attr("y", 0 - margin.left)
 		.attr("x", 0 - (height / 2))
 		.attr("value", "healthcare") // value to grab for event listener
-		.attr("dy", "4.5em")
+		.attr("dy", "4em")
 		.classed("active", true)
 		.classed("aText", true)
 		.text("Lacks Healthcare (%)");
@@ -321,13 +325,13 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 		.attr("y", 0 - margin.left)
 		.attr("x", 0 - (height / 2))
 		.attr("value", "obesity") // value to grab for event listener
-		.attr("dy", "2em")
+		.attr("dy", "1.5em")
 		.classed("inactive", true)
 		.classed("aText", true)
 		.text("Obesity (%)");
 		
 	// updateToolTip function for the current axes
-	var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+	var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleLabels);
 
 	// x axis labels event listener
 	xlabelsGroup.selectAll("text")
@@ -373,25 +377,25 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 						break;
 					case "age":
 						povertyLabel
-								.classed("active", false)
-								.classed("inactive", true);
+							.classed("active", false)
+							.classed("inactive", true);
 						ageLabel
-								.classed("active", true)
-								.classed("inactive", false);
+							.classed("active", true)
+							.classed("inactive", false);
 						incomeLabel
 							.classed("active", false)
 							.classed("inactive", true);
 						break;
 					case "income":
 						povertyLabel
-								.classed("active", false)
-								.classed("inactive", true);
+							.classed("active", false)
+							.classed("inactive", true);
 						ageLabel
-								.classed("active", false)
-								.classed("inactive", true);
+							.classed("active", false)
+							.classed("inactive", true);
 						incomeLabel
-								.classed("active", true)
-								.classed("inactive", false);	  			
+							.classed("active", true)
+							.classed("inactive", false);	  			
 	  			}
 			}
 	});
