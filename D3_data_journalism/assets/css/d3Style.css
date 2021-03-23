@@ -2,6 +2,10 @@ body {
   font-family: 'Antic Slab', serif;
 }
 
+h1 {
+  font-weight: 900;
+}
+
 .aText {
   font-family: sans-serif;
   font-size: 16px;
