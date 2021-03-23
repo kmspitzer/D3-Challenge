@@ -12,5 +12,5 @@ Inputs:
 assets/data/data.csv
 
 
-NOTE: State abbreviation text labelling code was located on the Stack Overflow community forum and modified to render the labels, and shared by
+NOTE: Collaboration with Rick Spitzer.  State abbreviation text labelling code was located on the Stack Overflow community forum and modified to render the labels, and shared by
 Annette Broeren and Kevin Mickey.
