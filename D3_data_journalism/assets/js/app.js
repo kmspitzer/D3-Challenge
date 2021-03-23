@@ -5,9 +5,13 @@
 //
 //     Kate Spitzer
 //
-//  This functionality reads in a JSON file containing 2016
+//  This functionality reads in a CSV file containing 2016
 //  US Census Bureau data.  The data is used to generate an
 //  interactive scatter plot using D3 libraries.
+//
+//  Each circel marker on the scatter plot will have the
+//  2 character state abbreviations displayed on it,
+//  indicating the state to which the data refers.
 //
 //  The scatter plot will have 3 possible x-axis options
 //  as well as 3 possible y-axis options.  When any of the
