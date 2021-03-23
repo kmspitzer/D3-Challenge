@@ -1,3 +1,29 @@
+//
+//
+//   UCSD Data Science and Visualization Bootcamp
+//     D3 Challenge
+//
+//     Kate Spitzer
+//
+//  This functionality reads in a JSON file containing 2016
+//  US Census Bureau data.  The data is used to generate an
+//  interactive scatter plot using D3 libraries.
+//
+//  The scatter plot will have 3 possible x-axis options
+//  as well as 3 possible y-axis options.  When any of the
+//  axis options are clicked, the plotted circles will
+//  transition to reflect the data of the axis selected.
+//
+//  On mouseover, a black border will appear and a tooltip will
+//  be displayed indicating the state name associated with the
+//  circle, as well as the data coordinates of the current
+//  circle with their associated axis labels.  On mouseout,
+//  the tooltip will be hidden.
+//
+//  Javascript and D3 were employed to develop this
+//  challenge.
+//
+//
 
 //////////////////////////
 // FUNCTION DEFINITIONS //
