@@ -94,7 +94,7 @@ function renderYText(circleLabels, newYScale, chosenYAxis) {
 }
   
 // function used for updating circles group with new tooltip
-function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
+function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleLabels) {
   
 	var xlabel;
 	var ylabel;
@@ -141,12 +141,15 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 		});
   
 	// create tooltips
-	circlesGroup.call(toolTip);
+	chartGroup.call(toolTip);
   
 	// create event listener for mouseover and
 	// mouseout on circles
 	circlesGroup.on("mouseover", function(data) {
-		toolTip.show(data);
+		toolTip.show(data, this);
+	})
+	circleLabels.on("mouseover", function(data) {
+		toolTip.show(data, this);
 	})
 	.on("mouseout", function(data, index) {
 		toolTip.hide(data);
@@ -262,9 +265,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 		.attr("x", d=> xLinearScale(d[chosenXAxis]))
 		.attr("y", d=> yLinearScale(d[chosenYAxis]))
 		.attr("dy", "0.4em")
-		.style("font-size", radius*0.8)
-		.text(d => d.abbr)
-;
+		.text(d => d.abbr);
 
 	// create group for x axis labels
   	var xlabelsGroup = chartGroup.append("g")
@@ -359,7 +360,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 				circleLabels = renderXText(circleLabels, xLinearScale, chosenXAxis);
 
 	  			// updates tooltips with new info
-	  			circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+	  			circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleLabels);
 
 	  			// changes x axis classes to change bold text
 				switch(chosenXAxis) {
@@ -429,7 +430,7 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 				circleLabels = renderYText(circleLabels, yLinearScale, chosenYAxis);
 
 				// updates tooltips with new info
-				circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
+				circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleLabels);
 
 				// changes classes to change bold text
 		  		switch(chosenYAxis) {
