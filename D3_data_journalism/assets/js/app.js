@@ -37,8 +37,8 @@
 function xScale(censusData, chosenXAxis) {
 	// create scales
 	var xLinearScale = d3.scaleLinear()
-		.domain([d3.min(censusData, d => d[chosenXAxis]) * 0.8,
-		d3.max(censusData, d => d[chosenXAxis]) * 1.2
+		.domain([d3.min(censusData, d => d[chosenXAxis]) * 0.95,
+		d3.max(censusData, d => d[chosenXAxis]) * 1.05
     ])
     .range([0, width]);
 
@@ -50,7 +50,7 @@ function xScale(censusData, chosenXAxis) {
 function yScale(censusData, chosenYAxis) {
 	// create scales
 	var yLinearScale = d3.scaleLinear()
-		.domain([0, d3.max(censusData, d => d[chosenYAxis]) * 1.2])
+		.domain([0, d3.max(censusData, d => d[chosenYAxis]) * 1.05])
     	.range([height, 0]);
 
 	return yLinearScale;
@@ -192,7 +192,7 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 ////////////////
 
 // set size of entire chart area
-var svgWidth = 1200;
+var svgWidth = 1500;
 var svgHeight = 800;
 
 
