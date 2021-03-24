@@ -237,8 +237,8 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 		data.age            = +data.age;
 		data.income         = +data.income;
 		data.healthcare     = +data.healthcare;
-		data.obesity        = +data.obesity;
 		data.smokes         = +data.smokes;
+		data.obesity        = +data.obesity;
 	});
 
 	// create linear scale functions
