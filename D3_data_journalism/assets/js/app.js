@@ -349,8 +349,8 @@ d3.csv("./assets/data/data.csv").then(function(censusData) {
 		.classed("aText", true)
 		.text("Obesity (%)");
 		
-	// updateToolTip function for the current axes
-	var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup, circleLabels);
+	// initialize tooltip
+	var circlesGroup = updateToolTip(chosenXAxis, chosenYAxis, circlesGroup);
 
 	// x axis labels event listener
 	xlabelsGroup.selectAll("text")
