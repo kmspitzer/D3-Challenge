@@ -14,3 +14,7 @@ assets/data/data.csv
 
 NOTE:  State abbreviation text labelling code was located on the Stack Overflow community forum and modified to render the labels, and shared by
 Annette Broeren and Kevin Mickey.
+
+
+To run this code, visit https://kmspitzer.github.io/D3-Challenge/D3_data_journalism/
+
