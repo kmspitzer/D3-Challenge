@@ -192,8 +192,8 @@ function updateToolTip(chosenXAxis, chosenYAxis, circlesGroup) {
 ////////////////
 
 // set size of entire chart area
-var svgWidth = 1500;
-var svgHeight = 800;
+var svgWidth = 1000;
+var svgHeight = 600;
 
 
 // define margins around chart
