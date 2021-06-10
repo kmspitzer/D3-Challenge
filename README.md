@@ -1,6 +1,6 @@
 # D3-Challenge
 
-Kate Spitzer
+Kate Spitzer    collaboration with Rick Spitzer
 
 The D3 challenge tasked us with reading in a CSV file containing 2016 US Census Bureau data and creating an interactive scatter plot written with javascript and D3.
 The plot has 3 choices for x-axis data, % subjects In Poverty, Median Age, and Median Household Income, and 3 choices for y-axis data, % Lacking Health Insurance, %
@@ -12,5 +12,5 @@ Inputs:
 assets/data/data.csv
 
 
-NOTE: Collaboration with Rick Spitzer.  State abbreviation text labelling code was located on the Stack Overflow community forum and modified to render the labels, and shared by
+NOTE:  State abbreviation text labelling code was located on the Stack Overflow community forum and modified to render the labels, and shared by
 Annette Broeren and Kevin Mickey.
