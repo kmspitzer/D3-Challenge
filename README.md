@@ -1,6 +1,5 @@
 # D3-Challenge
 
-Kate Spitzer    collaboration with Rick Spitzer
 
 The D3 challenge tasked us with reading in a CSV file containing 2016 US Census Bureau data and creating an interactive scatter plot written with javascript and D3.
 The plot has 3 choices for x-axis data, % subjects In Poverty, Median Age, and Median Household Income, and 3 choices for y-axis data, % Lacking Health Insurance, %
