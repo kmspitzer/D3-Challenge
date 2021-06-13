@@ -15,5 +15,5 @@ NOTE:  State abbreviation text labelling code was located on the Stack Overflow 
 Annette Broeren and Kevin Mickey.
 
 
-To run this code, visit https://kmspitzer.github.io/D3-Challenge/D3_data_journalism/
+To run this code, visit https://kmspitzer.github.io/Multi-axis-Census-Plot/D3_data_journalism/
 
