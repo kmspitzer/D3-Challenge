@@ -1,4 +1,4 @@
-# D3-Challenge
+# Multi-axis-Census-Plot
 
 
 The D3 challenge tasked us with reading in a CSV file containing 2016 US Census Bureau data and creating an interactive scatter plot written with javascript and D3.
