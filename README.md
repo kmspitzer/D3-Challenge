@@ -10,6 +10,7 @@ displayed, indicating the state name, and the current axis names and data values
 Inputs:
 assets/data/data.csv
 
+![image](/D3_data_journalism/assets/img/censusplot.png)
 
 NOTE:  State abbreviation text labelling code was located on the Stack Overflow community forum and modified to render the labels, and shared by
 Annette Broeren and Kevin Mickey.
